@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text(column: 'google');
             $table->string(column: 'yandex')->nullable();
             $table->unsignedBigInteger(column: 'edge')->nullable();
-            $table->boolean(column: 'internet')->default(1);
+            $table->string(column: 'internet')->default(1);
             $table->timestamps();
         });
     }

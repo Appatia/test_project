@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string(column: 'title');
-            $table->boolean(column: 'blog');
-            $table->boolean(column: 'followers');
-            $table->boolean(column: 'likes');
-            $table->boolean(column: 'reply');
-            $table->boolean(column: 'comments');
+            $table->string(column: 'blog');
+            $table->string(column: 'followers');
+            $table->string(column: 'likes');
+            $table->string(column: 'reply');
+            $table->string(column: 'comments');
             $table->timestamps();
         });
     }

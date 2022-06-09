@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->string(column: 'title');
-            $table->boolean(column: 'format');
-            $table->boolean(column: 'width');
-            $table->boolean(column: 'height');
-            $table->boolean(column: 'quality');
-            $table->boolean(column: 'snap');
+            $table->string(column: 'format');
+            $table->string(column: 'width');
+            $table->string(column: 'height');
+            $table->string(column: 'quality');
+            $table->string(column: 'snap');
             $table->timestamps();
         });
     }

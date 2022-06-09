@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string(column: 'title');
             $table->text(column: 'index');
-            $table->unsignedBigInteger(column: 'flat')->nullable();;
+            $table->string(column: 'flat')->nullable();;
             $table->timestamps();
         });
     }
