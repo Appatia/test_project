@@ -16,6 +16,7 @@
               <label for="image" class="form-label"></label>
               <input name="image" type="text" class="form-control" id="image" placeholder="Image" value="{{ $post->image }}">
                <button type="submit" class="btn btn-primary">Update</button>
+          </div>
     </form>
   </div>
 @endsection

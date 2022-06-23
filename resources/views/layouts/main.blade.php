@@ -9,50 +9,24 @@
     <title>Welcome to Ukraine</title>
 </head>
 <body>
-{{-- welcome to ukraine--}}
-<div class="container">
-    <div class="row">
-    <nav>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('main.index') }}">Main <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about.index') }}">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contact.index') }}">Contacts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('blog.index') }}">Blogs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('post.index') }}">Posts</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
-                            Dropdown link
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-{{--        </nav>--}}
-{{--        <ul>--}}
-{{--            <li><a href="{{ route('main.index') }}">Main</a></li>--}}
-{{--            <li><a href="{{ route('about.index') }}">About</a></li>--}}
-{{--            <li><a href="{{ route('contact.index') }}">Contacts</a></li>--}}
-{{--            <li><a href="{{ route('blog.index') }}">Blogs</a></li>--}}
-{{--            <li><a href="{{ route('post.index') }}">Posts</a></li>--}}
-{{--        </ul>--}}
-{{--    </nav>--}}
+<nav class="navbar navbar-expand-lg bg-info">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Welcome to Urkaine</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="#">Главная</a>
+                <a class="nav-link" href="{{ route('video.index') }}">Video</a>
+                <a class="nav-link" href="{{ route('contact.index') }}">Contact</a>
+                <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
+                <a class="nav-link" href="{{ route('post.index') }}">Post</a>
+              </div>
+        </div>
     </div>
+</nav>
+</div>
 </div>
 <div>
     @yield('content')

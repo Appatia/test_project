@@ -2766,7 +2766,6 @@ textarea.form-control-lg {
 .input-group .form-select.is-invalid:focus {
   z-index: 3;
 }
-
 .btn {
   display: inline-block;
   font-weight: 400;
@@ -3047,7 +3046,7 @@ textarea.form-control-lg {
 .btn-outline-primary {
   color: #0d6efd;
   border-color: #0d6efd;
-}
+    }
 .btn-outline-primary:hover {
   color: #fff;
   background-color: #0d6efd;
@@ -3060,7 +3059,7 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #0d6efd;
   border-color: #0d6efd;
-}
+  }
 .btn-check:checked + .btn-outline-primary:focus, .btn-check:active + .btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.5);
 }
@@ -3806,6 +3805,7 @@ textarea.form-control-lg {
   justify-content: space-between;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  margin-bottom: 25px;
 }
 .navbar > .container,
 .navbar > .container-fluid,
