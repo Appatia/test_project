@@ -4,9 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'content', 'image'];
+//    protected $fillable = ['title', 'content', 'image'];
     use HasFactory;
+    use SoftDeletes;
+    protected $table = 'posts';
+    protected $guarded = false;
+    public function category(  )
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+public function tags()
+{
+    return $this->belongsToMany(tag::class, 'post_tags', 'post_id', 'tag_id');
+}
+
 }

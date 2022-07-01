@@ -20,7 +20,7 @@ class BlogController extends Controller
     {
         $data = request()->validate([
             'title' => 'string',
-            'bloggers' => 'string',
+            'blog' => 'string',
             'followers' => 'string',
             'likes' => 'string',
             'reply' => 'string',

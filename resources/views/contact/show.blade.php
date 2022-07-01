@@ -6,6 +6,7 @@
      </div>
     <div>
         <a href="{{ route('contact.edit', $contact->id ) }}">Edit</a>
+{{--        <input type="submit" value="Edit" class="btn btn-success">--}}
     </div>
     <div>
         <form action="{{ route('contact.delete', $contact->id ) }}" method="post">
@@ -16,5 +17,6 @@
        </div>
     <div>
         <a href="{{ route('contact.index') }}">Back</a>
+{{--        <input type="submit" value="Back" class="btn btn-secondary">--}}
     </div>
 @endsection
