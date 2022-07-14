@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\PostTag;
 use App\Models\tag;
 
 class PostController extends Controller
@@ -15,8 +16,8 @@ class PostController extends Controller
 //        $category = Category::find(1);
 //        $post = Post::find(1);
 //        $tag = Tag::find(1);
-//      dd($tag->posts);
-//     dd($post->category);
+//        dd($tag->posts);
+//        dd($post->category);
 //        dd($category->posts);
 //        $posts = Post::where('category_id', $category->id)->get();
 //        dd($posts);
@@ -27,20 +28,36 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('post.create', compact('categories'));
+        $tags = Tag::all();
+        return view('post.create', compact('categories', 'tags'));
 
     }
 
     public function store()
     {
         $data = request()->validate([
-            'title' => 'string',
+            'title' => 'required|string',
             'content' => 'string',
             'image' => 'string',
             'category_id' => '',
+            'tags' => '',
         ]);
-//dd($data);
-            Post::create($data);
+//        dd($data);
+//        $tags = $data['tags'];
+//        unset($data['tags']);
+//        dd($data);
+        $tags = $data['tags'];
+        unset($data['tags']);
+//        dd($tags, $data);
+        $post = Post::create($data);
+        $post->tags()->attach($tags);
+//        foreach ($tags as $tag) {
+//            PostTag::firstOrCreate([
+//                'tag_id' => $tag,
+//                'post_id' => $post->id
+//            ]);
+//        }
+
         return redirect()->route('post.index');
 
     }
@@ -55,7 +72,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
-        return view('post.edit', compact('post', 'categories'));
+        $tags = Tag::all();
+        return view('post.edit', compact('post', 'categories', 'tags'));
     }
 
     public function update(Post $post)
@@ -65,8 +83,12 @@ class PostController extends Controller
             'content' => 'string',
             'image' => 'string',
             'category_id' => '',
+            'tags' => '',
         ]);
+        $tags = $data['tags'];
+        unset($data['tags']);
         $post->update($data);
+        $post->tags()->sync($tags);
         return redirect()->route('post.show', $post->id);
     }
 
