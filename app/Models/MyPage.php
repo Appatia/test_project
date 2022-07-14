@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class MyPage extends Model
 {
     use HasFactory;
+    protected $table='my_pages';
+    protected $guarded=[];
 }

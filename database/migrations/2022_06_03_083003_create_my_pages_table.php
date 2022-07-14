@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('my_pages', function (Blueprint $table) {
             $table->id();
             $table->string(column: 'title');
-            $table->boolean(column: 'link');
-            $table->boolean(column: 'e-mail');
-            $table->boolean(column: 'port');
-            $table->boolean(column: 'IP');
-            $table->boolean(column: 'host');
+            $table->string(column: 'link');
+            $table->string(column: 'e-mail');
+            $table->string(column: 'port');
+            $table->string(column: 'IP');
+            $table->string(column: 'host');
             $table->timestamps();
         });
     }

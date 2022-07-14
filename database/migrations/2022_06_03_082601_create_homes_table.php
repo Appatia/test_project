@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('homes', function (Blueprint $table) {
             $table->id();
             $table->string(column: 'home');
-            $table->boolean(column: 'stage');
-            $table->boolean(column: 'flat');
+            $table->string(column: 'stage');
+            $table->string(column: 'flat');
             $table->timestamps();
         });
     }
