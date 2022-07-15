@@ -13,6 +13,7 @@ class StoreController extends Controller
             'title' => 'required|string',
             'content' => 'string',
             'image' => 'string',
+            'likes' => 'string',
             'category_id' => '',
             'tags' => '',
         ]);

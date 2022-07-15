@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -21,6 +20,10 @@ return new class extends Migration
             $table->string(column: 'country');
             $table->string(column: 'street');
             $table->timestamps();
+            $table->softDeletes();
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->index('category_id', 'contact_category_idx');
+//            $table->foreign('category_id', 'contact_category_fk')->references('id')->on('categories');
         });
     }
 

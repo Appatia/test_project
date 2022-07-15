@@ -1,17 +1,31 @@
 <?php
 
 use App\Http\Controllers\AdressController;
+use App\Http\Controllers\Contact\ContactCreateController;
+use App\Http\Controllers\Contact\ContactDestroyController;
+use App\Http\Controllers\Contact\ContactEditController;
+use App\Http\Controllers\Contact\ContactIndexController;
+use App\Http\Controllers\Contact\ContactShowController;
+use App\Http\Controllers\Contact\ContactStoreController;
+use App\Http\Controllers\Contact\ContactUpdateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MapsController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\Post\CreateController;
+use App\Http\Controllers\Post\IndexController;
 use App\Http\Controllers\Post\DestroyController;
 use App\Http\Controllers\Post\EditController;
-use App\Http\Controllers\Post\IndexController;
 use App\Http\Controllers\Post\ShowController;
 use App\Http\Controllers\Post\StoreController;
 use App\Http\Controllers\Post\UpdateController;
+use App\Http\Controllers\Video\VideoIndexController;
+use App\Http\Controllers\Video\VideoCreateController;
+use App\Http\Controllers\Video\VideoDestroyController;
+use App\Http\Controllers\Video\VideoEditController;
+use App\Http\Controllers\Video\VideoShowController;
+use App\Http\Controllers\Video\VideoStoreController;
+use App\Http\Controllers\Video\VideoUpdateController;
 use App\Http\Controllers\Blog\BlogCreateController;
 use App\Http\Controllers\Blog\BlogDestroyController;
 use App\Http\Controllers\Blog\BlogEditController;
@@ -19,16 +33,16 @@ use App\Http\Controllers\Blog\BlogIndexController;
 use App\Http\Controllers\Blog\BlogShowController;
 use App\Http\Controllers\Blog\BlogStoreController;
 use App\Http\Controllers\Blog\BlogUpdateController;
-use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyPageController;
-use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\VideoController;
 
 
 /*
@@ -67,24 +81,24 @@ Route::get('/main', [MainController::class, 'index'])->name('main.index');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
-Route::get('/video', [VideoController::class, 'index']);
-Route::get('/videos', [VideoController::class, 'index'])->name('video.index');
-Route::get('/videos/create', [VideoController::class, 'create'])->name('video.create');
-Route::post('/videos', [VideoController::class, 'store'])->name('video.store');
-Route::get('/videos/{video}', [VideoController::class, 'show'])->name('video.show');
-Route::get('/videos/{video}/edit', [VideoController::class, 'edit'])->name('video.edit');
-Route::patch('/videos/{video}/', [VideoController::class, 'update'])->name('video.update');
-Route::delete('/videos/{video}/', [VideoController::class, 'destroy'])->name('video.delete');
-
-Route::get('/contact', [ContactController::class, 'index']);
-Route::get('/contacts', [ContactController::class, 'index'])->name('contact.index');
-Route::get('/contacts/create', [ContactController::class, 'create'])->name('contact.create');
-Route::post('/contacts', [ContactController::class, 'store'])->name('contact.store');
-Route::get('/contacts/{contact}', [ContactController::class, 'show'])->name('contact.show');
-Route::get('/contacts/{contact}/edit', [ContactController::class, 'edit'])->name('contact.edit');
-Route::patch('/contacts/{contact}/', [ContactController::class, 'update'])->name('contact.update');
-Route::delete('/contacts/{contact}/', [ContactController::class, 'destroy'])->name('contact.delete');
-
+Route::group(['prefix' => 'videos'], function () {
+    Route::get('', VideoIndexController::class)->name('video.index');
+    Route::get('create', VideoCreateController::class)->name('video.create');
+    Route::post('', VideoStoreController::class)->name('video.store');
+    Route::get('{video}', VideoShowController::class)->name('video.show');
+    Route::get('{video}/edit', VideoEditController::class)->name('video.edit');
+    Route::patch('{video}/', VideoUpdateController::class)->name('video.update');
+    Route::delete('{video}/', VideoDestroyController::class)->name('video.delete');
+});
+Route::group(['prefix' => 'contacts'], function () {
+    Route::get('', ContactIndexController::class)->name('contact.index');
+    Route::get('create', ContactCreateController::class)->name('contact.create');
+    Route::post('', ContactStoreController::class)->name('contact.store');
+    Route::get('{contact}', ContactShowController::class)->name('contact.show');
+    Route::get('{contact}/edit', ContactEditController::class)->name('contact.edit');
+    Route::patch('{contact}/', ContactUpdateController::class)->name('contact.update');
+    Route::delete('{contact}/', ContactDestroyController::class)->name('contact.delete');
+});
 Route::group(['prefix' => 'blogs'], function () {
     Route::get('', BlogIndexController::class)->name('blog.index');
     Route::get('create', BlogCreateController::class)->name('blog.create');
@@ -105,3 +119,5 @@ Route::group(['prefix' => 'posts'], function () {
 });
 //Route::get('/post', [BlogIndexController::class, 'index']);
 //Route::get('/blog', [BlogController::class, 'index']);
+//Route::get('/contact', [ContactController::class, 'index']);
+//Route::get('/video', [VideoController::class, 'index']);

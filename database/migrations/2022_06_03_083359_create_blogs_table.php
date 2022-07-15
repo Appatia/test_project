@@ -25,7 +25,7 @@ return new class extends Migration
             $table->softDeletes();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->index('category_id', 'blog_category_idx');
-            $table->foreign('category_id', 'blog_category_fk')->references('id')->on('categories');
+//            $table->foreign('category_id', 'blog_category_fk')->references('id')->on('categories');
         });
     }
 

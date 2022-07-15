@@ -11,12 +11,22 @@ class Category extends Model
     protected $guarded = false;
     public function posts()
     {
-        return $this->hasMany(Post::class, 'category_id', 'id');
+        return $this->hasMany(Post::class, 'post_id', 'id');
 
     }
     public function blogs()
     {
-        return $this->hasMany(Blog::class, 'category_id', 'id');
+        return $this->hasMany(Blog::class, 'blog_id', 'id');
+
+    }
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class, 'contact_id', 'id');
+
+    }
+    public function videos()
+    {
+        return $this->hasMany(Video::class, 'video_id', 'id');
 
     }
 }

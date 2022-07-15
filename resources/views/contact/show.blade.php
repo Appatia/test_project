@@ -6,7 +6,6 @@
      </div>
     <div>
         <a href="{{ route('contact.edit', $contact->id ) }}">Edit</a>
-{{--        <input type="submit" value="Edit" class="btn btn-success">--}}
     </div>
     <div>
         <form action="{{ route('contact.delete', $contact->id ) }}" method="post">

@@ -11,7 +11,6 @@ class IndexController extends Controller
     {
         $posts = Post::all();
         return view('post.index', compact('posts'));
-
     }
 }
 

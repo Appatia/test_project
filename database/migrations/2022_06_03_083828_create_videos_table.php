@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string(column: 'quality');
             $table->string(column: 'snap');
             $table->timestamps();
+            $table->softDeletes();
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->index('category_id', 'contact_category_idx');
+//            $table->foreign('category_id', 'contact_category_fk')->references('id')->on('categories');
         });
     }
 

@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\ContactTag;
 
 class ContactController extends Controller
 {

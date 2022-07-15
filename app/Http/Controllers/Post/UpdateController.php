@@ -10,9 +10,10 @@ class UpdateController extends Controller
     public function __invoke(Post $post)
     {
         $data = request()->validate([
-            'title' => 'string',
+            'title' => 'required|string',
             'content' => 'string',
             'image' => 'string',
+            'likes' => 'string',
             'category_id' => '',
             'tags' => '',
         ]);
