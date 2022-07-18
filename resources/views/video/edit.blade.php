@@ -28,6 +28,24 @@
               <label for="snap" class="form-label"></label>
               <input type="text" name="snap" class="form-control" id="snap"placeholder="Snap" value="{{ $video->snap }}">
           </div>
+          <select class="form-select" aria-label="category" name="category_id">
+              @foreach($categories as $category)
+                  {{--                <option selected>Category</option>--}}
+                  <option
+                      {{ $category->id === $video->category->id ? 'selected' : '' }}
+                      value="{{$category->id}}">{{$category->title}}</option>
+              @endforeach
+          </select>
+          <label for="tags">#tags</label>
+          <select class="form-select" multiple aria-label="multiple select example" id="tags" name="tags[]">
+              @foreach($tags as $tag)
+                  <option
+                      @foreach($video->tags as $videoTag)
+                          {{ $tag->id === $videoTag->id ? 'selected' : '' }}
+                      @endforeach
+                      value="{{ $tag->id }}">{{ $tag->title }}</option>
+              @endforeach
+          </select>
           <button type="submit" class="btn btn-primary">Create</button>
       </form>
   </div>

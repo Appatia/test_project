@@ -35,8 +35,8 @@
           <select class="form-select" multiple aria-label="multiple select example" id="tags" name="tags[]">
               @foreach($tags as $tag)
                   <option
-                      @foreach($contact->tags as $ContactTag)
-                          {{ $tag->id === $postTag->id ? 'selected' : '' }}
+                      @foreach($contact->tags as $contactTag)
+                          {{ $tag->id === $contactTag->id ? 'selected' : '' }}
                       @endforeach
                       value="{{ $tag->id }}">{{ $tag->title }}</option>
               @endforeach

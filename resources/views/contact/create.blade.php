@@ -15,36 +15,36 @@
           <div class="mb-4">
               <label for="contact" class="form-label"></label>
               <textarea
-                  value="{{ old('content') }}"
+                  value="{{ old('contact') }}"
                   name="contact" name="contact"  class="form-control" id="contact" placeholder="Contact"></textarea>
-              @error('content')
+              @error('contact')
               <p class="text-danger">{{ $message }}</p>
               @enderror()
           </div>
           <div class="mb-4">
               <label for="city" class="form-label"></label>
               <input
-                  value="{{ old('image') }}"
+                  value="{{ old('city') }}"
                   type="text" name="city" class="form-control" id="city" placeholder="City">
-              @error('image')
+              @error('city')
               <p class="text-danger">{{ $message }}</p>
               @enderror()
           </div>
           <div class="mb-4">
               <label for="country" class="form-label"></label>
               <textarea
-                  value="{{ old('image') }}"
+                  value="{{ old('country') }}"
                   name="country" class="form-control" id="country" placeholder="Country" ></textarea>
-              @error('image')
+              @error('country')
               <p class="text-danger">{{ $message }}</p>
               @enderror()
           </div>
           <div class="mb-4">
               <label for="street" class="form-label"></label>
               <input
-                  value="{{ old('image') }}"
+                  value="{{ old('street') }}"
                   type="text" name="street" class="form-control" id="street"placeholder="Street">
-              @error('image')
+              @error('street')
               <p class="text-danger">{{ $message }}</p>
               @enderror()
               <select class="form-select" aria-label="category" name="category_id">

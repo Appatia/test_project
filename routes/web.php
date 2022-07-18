@@ -35,7 +35,6 @@ use App\Http\Controllers\Blog\BlogStoreController;
 use App\Http\Controllers\Blog\BlogUpdateController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyPageController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ContactController;
@@ -43,6 +42,7 @@ use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\BlogController;
 
 
 /*
@@ -58,16 +58,6 @@ use App\Http\Controllers\VideoController;
 Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/my_page', [MyPageController::class, 'index']);
-
-Route::get('/blog/create', [BlogController::class, 'create']);
-
-Route::get('/blog/update', [BlogController::class, 'update']);
-
-Route::get('/blog/delete', [BlogController::class, 'delete']);
-
-Route::get('/blog/first_or_create', [BlogController::class, 'firstOrCreate']);
-
-Route::get('/blog/update_or_create', [BlogController::class, 'updateOrCreate']);
 
 Route::get('/news', [NewsController::class, 'index']);
 
@@ -121,3 +111,8 @@ Route::group(['prefix' => 'posts'], function () {
 //Route::get('/blog', [BlogController::class, 'index']);
 //Route::get('/contact', [ContactController::class, 'index']);
 //Route::get('/video', [VideoController::class, 'index']);
+//Route::get('/blog/create', [BlogController::class, 'create']);
+//Route::get('/blog/update', [BlogController::class, 'update']);
+//Route::get('/blog/delete', [BlogController::class, 'delete']);
+//Route::get('/blog/first_or_create', [BlogController::class, 'firstOrCreate']);
+//Route::get('/blog/update_or_create', [BlogController::class, 'updateOrCreate']);
